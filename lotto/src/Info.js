@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const getColorKor = (color) => {
   console.log("getColorKor");
@@ -39,8 +39,8 @@ const getSeason = (season) => {
 };
 
 const Info = ({ color, season }) => {
-  const colorKor = getColorKor(color);
-  const seasonKor = getSeason(season);
+  const colorKor = useMemo(() => getColorKor(color), [color]);
+  const seasonKor = useMemo(() => getSeason(season), [season]);
 
   return (
     <div className='info-wrapper'>
